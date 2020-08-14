@@ -6,7 +6,7 @@
     <METADATA>
      <NAME>ZSW_UI_TRAVEL_PROC_M_O2</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>Travel</DESCRIPTION>
+     <DESCRIPTION>UI Service for Processing Travels</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
@@ -37,9 +37,9 @@
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/%2fdmo%2fui_travel_processor_m</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/zsw_ui_travel_processor_m</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>/DMO/UI_TRAVEL_PROCESSOR_M</NAME>
+          <NAME>ZSW_UI_TRAVEL_PROCESSOR_M</NAME>
          </SRVD_REF>
         </item>
        </SERVICE_CONTENT>
