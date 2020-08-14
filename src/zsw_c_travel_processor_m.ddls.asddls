@@ -27,7 +27,7 @@ define root view entity ZSW_C_TRAVEL_PROCESSOR_M
           lineItem:       [ { position: 10, importance: #HIGH } ,
                           { type: #FOR_ACTION, dataAction: 'createTravelByTemplate', label: 'Create Travel by Template' } ],
           identification: [ { position: 10, label: 'Travel ID [1,...,99999999]' } ],
-          selectionField: [ { position: 30 } ] }
+          selectionField: [ { position: 10 } ] }
       @Search.defaultSearchElement: true
   key travel_id          as TravelID,
 

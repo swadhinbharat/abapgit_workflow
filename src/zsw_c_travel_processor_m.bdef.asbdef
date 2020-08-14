@@ -1,0 +1,37 @@
+projection;
+
+define behavior for ZSW_C_Travel_Processor_M alias TravelProcessor
+use etag
+
+{
+  field ( readonly ) TotalPrice;
+  field ( mandatory ) BeginDate, EndDate, CustomerID;
+
+  use create;
+  use update;
+  use delete;
+
+  use action createTravelByTemplate;
+
+  use association _BOOKING { create; }
+
+}
+
+define behavior for ZSW_C_Booking_Processor_M alias BookingProcessor
+use etag
+{
+  use update;
+//  use delete; // workaround for missing determination on delete
+
+  use association _BOOKSUPPLEMENT { create; }
+  use association _Travel { }
+}
+
+
+define behavior for ZSW_C_BookSuppl_Processor_M alias BookSupplProcessor
+use etag
+{
+  use update;
+//  use delete; // workaround for missing determination on delete
+  use association _Travel { }
+}
