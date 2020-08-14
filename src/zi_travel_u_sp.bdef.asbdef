@@ -1,0 +1,30 @@
+unmanaged implementation in class zcl_travel_u_sp unique;
+
+define behavior for ZI_TRAVEL_U_SP alias travel
+//late numbering
+//lock master
+//authorization master
+//etag <field_name>
+{
+  create;
+  update;
+  delete;
+
+  action set_status_booked result [1] $self;
+
+  mapping for /dmo/travel
+  {
+    AgencyID = agency_id;
+    BeginDate = begin_date;
+    BookingFee = booking_fee;
+    CurrencyCode = currency_code;
+    CustomerID = customer_id;
+    EndDate = end_date;
+    Memo = description;
+    Status = status;
+    TotalPrice = total_price;
+    TravelID = travel_id;
+  }
+
+
+}

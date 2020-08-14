@@ -1,0 +1,8 @@
+@EndUserText.label: 'Travel Unmanaged'
+define service ZI_TRAVEL_U_SD_SP {
+  expose ZI_TRAVEL_U_SP as Travel;
+  expose ZI_Agency_U_SP as TravelAgency;
+  expose ZI_Customer_U_SP as Passenger;
+  expose I_Currency as Currency;
+  expose I_Country as Country;
+}
