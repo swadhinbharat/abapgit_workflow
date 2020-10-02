@@ -5,6 +5,8 @@ persistent table ztravel_sp
 etag master last_changed_at
 lock master
 {
+  field ( numbering : managed ) mykey;
+
   // administrative fields (read only)
   field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
 

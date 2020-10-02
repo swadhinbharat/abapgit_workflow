@@ -186,6 +186,7 @@ CLASS lhc_travel IMPLEMENTATION.
         FIELDS MAX( travel_id ) INTO @DATA(lv_max_travel_id).
 
     LOOP AT keys INTO DATA(ls_key).
+*      ls_key-mykey = cl_system_uuid=>create_uuid_x16_static( ).
       lv_max_travel_id = lv_max_travel_id + 1.
       MODIFY ENTITIES OF zi_travel_m1_sp  IN LOCAL MODE
         ENTITY Travel
