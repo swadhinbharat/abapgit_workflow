@@ -14,15 +14,22 @@ define root view entity ZSW_C_TRAVEL_PROCESSOR_M
                      purpose:         #STANDARD,
                      type:            #IDENTIFICATION_REFERENCE,
                      label:           'Travel',
-                     position:        10 },
-                   { id:              'Booking',
+                     position:        10 }
+//,
+//                   { id:              'Booking',
+//                     purpose:         #STANDARD,
+//                     type:            #LINEITEM_REFERENCE,
+//                     label:           'Booking',
+//                     position:        20,
+//                     targetElement:   '_Booking'}
+,
+                   { id:              'Chart',
                      purpose:         #STANDARD,
-                     type:            #LINEITEM_REFERENCE,
-                     label:           'Booking',
-                     position:        20,
-                     targetElement:   '_Booking'}]
-
-
+                     type:            #CHART_REFERENCE,
+                     label:           'Chart',
+                     position:        30,
+                     targetElement:   '_Booking'}
+]
       @UI: {
           lineItem:       [ { position: 10, importance: #HIGH } ,
                           { type: #FOR_ACTION, dataAction: 'createTravelByTemplate', label: 'Create Travel by Template' } ],

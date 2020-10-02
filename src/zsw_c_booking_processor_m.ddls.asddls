@@ -8,8 +8,14 @@
 
 @Search.searchable: true
 
+@UI.chart:[{
+   chartType: #COLUMN, 
+   measures: ['FlightPrice'], 
+   dimensions: ['BookingID']
+}]
+
 define view entity ZSW_C_BOOKING_PROCESSOR_M
-  as projection on ZSW_I_Booking_M
+  as projection on ZSW_I_BOOKING_M
 {
       @UI.facet: [ { id:            'Booking',
                      purpose:       #STANDARD,
@@ -85,8 +91,8 @@ define view entity ZSW_C_BOOKING_PROCESSOR_M
 
 
       /* Associations */
-      _Travel         : redirected to parent ZSW_C_Travel_Processor_M,
-      _BookSupplement : redirected to composition child ZSW_C_BookSuppl_Processor_M,
+      _Travel         : redirected to parent ZSW_C_TRAVEL_PROCESSOR_M,
+      _BookSupplement : redirected to composition child ZSW_C_BOOKSUPPL_PROCESSOR_M,
       _Customer,
       _Carrier
 

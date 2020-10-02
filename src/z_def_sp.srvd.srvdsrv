@@ -1,0 +1,4 @@
+@EndUserText.label: 'Demo service Definition'
+define service Z_DEF_SP {
+  expose I_Currency as Currency;
+}
