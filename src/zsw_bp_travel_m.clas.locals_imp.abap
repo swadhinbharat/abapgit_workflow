@@ -13,6 +13,9 @@ CLASS lhc_travel DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS set_status_completed       FOR MODIFY IMPORTING   keys FOR ACTION travel~acceptTravel              RESULT result.
     METHODS set_status_cancelled       FOR MODIFY IMPORTING   keys FOR ACTION travel~rejectTravel              RESULT result.
     METHODS get_features               FOR FEATURES IMPORTING keys REQUEST    requested_features FOR travel    RESULT result.
+    METHODS newaction                  FOR MODIFY IMPORTING   keys FOR ACTION travel~newaction                 RESULT result.
+    METHODS test FOR MODIFY
+      IMPORTING keys FOR ACTION travel~test.
 
 *    METHODS check_authority_for_travel FOR AUTHORIZATION IMPORTING it_travel_key REQUEST is_request FOR travel RESULT result.
 
@@ -71,7 +74,7 @@ CLASS lhc_travel IMPLEMENTATION.
 *
 **********************************************************************
 
- METHOD validate_agency.
+  METHOD validate_agency.
     " Read relevant travel instance data
     READ ENTITIES OF ZSW_I_Travel_M IN LOCAL MODE
     ENTITY travel
@@ -377,6 +380,77 @@ CLASS lhc_travel IMPLEMENTATION.
 *
 *  ENDMETHOD.
 *
+  METHOD newAction.
+    SELECT MAX( travel_id ) FROM /dmo/travel_m INTO @DATA(lv_travel_id).
+
+*    READ ENTITY zsw_i_travel_m
+*         FIELDS ( travel_id
+*                  agency_id
+*                  customer_id
+*                  booking_fee
+*                  total_price
+*                  currency_code )
+*           WITH VALUE #( FOR travel IN keys (  %key = travel-%key ) )
+*         RESULT    DATA(lt_read_result)
+*         FAILED    failed
+*         REPORTED  reported.
+*
+*    DATA(lv_today) = cl_abap_context_info=>get_system_date( ).
+*
+    DATA lt_create TYPE TABLE FOR CREATE ZSW_I_Travel_M\\travel.
+
+*    lt_create = VALUE #( FOR row IN  lt_read_result INDEX INTO idx
+*                             ( travel_id      = lv_travel_id + idx
+*                               agency_id      = row-agency_id
+*                               customer_id    = row-customer_id
+*                               begin_date     = lv_today
+*                               end_date       = lv_today + 30
+*                               booking_fee    = row-booking_fee
+*                               total_price    = row-total_price
+*                               currency_code  = row-currency_code
+*                               description    = 'Enter your comments here'
+*                               overall_status = 'O' ) ). " Open
+
+    DATA(lv_today) = cl_abap_context_info=>get_system_date( ).
+
+*    lt_create = VALUE #( new #( travel_id      = lv_travel_id + idx ) ). " Open
+    APPEND VALUE #( travel_id = lv_travel_id + 1
+                               agency_id      = '70014'
+                               customer_id    = '21'
+                               begin_date     = lv_today
+                               end_date       = lv_today + 30
+                    overall_status = 'O') TO lt_create.
+
+
+    MODIFY ENTITIES OF zsw_i_travel_m IN LOCAL MODE
+        ENTITY travel
+           CREATE FIELDS (    travel_id
+                              agency_id
+                              customer_id
+                              begin_date
+                              end_date
+                              booking_fee
+                              total_price
+                              currency_code
+                              description
+                              overall_status )
+           WITH lt_create
+         MAPPED   mapped
+         FAILED   failed
+         REPORTED reported.
+
+
+    result = VALUE #( FOR create IN  lt_create INDEX INTO idx
+                             ( "%cid_ref = keys[ idx ]-%cid_ref
+                               "%key     = keys[ idx ]-travel_id
+                               %cid = keys[ idx ]-%cid
+                               %param   = CORRESPONDING #(  create ) ) ) .
+  ENDMETHOD.
+
+  METHOD test.
+
+  ENDMETHOD.
+
 ENDCLASS.
 
 

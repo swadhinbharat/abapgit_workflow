@@ -32,7 +32,10 @@ define root view entity ZSW_C_TRAVEL_PROCESSOR_M
 ]
       @UI: {
           lineItem:       [ { position: 10, importance: #HIGH } ,
-                          { type: #FOR_ACTION, dataAction: 'createTravelByTemplate', label: 'Create Travel by Template' } ],
+//                          { type: #FOR_ACTION, dataAction: 'createTravelByTemplate', label: 'Create Travel by Template' },
+                          { type: #FOR_ACTION, dataAction: 'newAction', label: 'newAction - Create with Data' },
+//                          { type: #FOR_ACTION, dataAction: 'test', label: 'Create BI' },
+                          { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'deductDiscount' } ],
           identification: [ { position: 10, label: 'Travel ID [1,...,99999999]' } ],
           selectionField: [ { position: 10 } ] }
       @Search.defaultSearchElement: true

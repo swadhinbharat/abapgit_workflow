@@ -4,13 +4,13 @@
   <asx:values>
    <SRVB>
     <METADATA>
-     <NAME>ZSW_UI_TRAVEL_PROC_M_O2</NAME>
+     <NAME>ZSW_SB_UI_TRAVEL_D_D</NAME>
      <TYPE>SRVB/SVB</TYPE>
-     <DESCRIPTION>UI Service for Processing Travels</DESCRIPTION>
+     <DESCRIPTION>Travel Draft</DESCRIPTION>
      <LANGUAGE>EN</LANGUAGE>
      <LINKS>
       <item>
-       <HREF>/sap/bc/adt/businessservices/odatav2/ZSW_UI_TRAVEL_PROC_M_O2</HREF>
+       <HREF>/sap/bc/adt/businessservices/odatav2/ZSW_SB_UI_TRAVEL_D_D</HREF>
        <REL>http://www.sap.com/categories/odatav2</REL>
        <TYPE>application/vnd.sap.adt.businessservices.odatav2.v2+xml</TYPE>
        <TITLE>ODATAV2</TITLE>
@@ -26,20 +26,20 @@
     </METADATA>
     <CONTENT>
      <BIND_TYPE_IMPL>
-      <NAME>ZSW_UI_TRAVEL_PROC_M_O2</NAME>
+      <NAME>ZSW_SB_UI_TRAVEL_D_D</NAME>
      </BIND_TYPE_IMPL>
      <BIND_TYPE>ODATA</BIND_TYPE>
      <BIND_TYPE_VERSION>V2</BIND_TYPE_VERSION>
      <SERVICES>
       <item>
-       <SERVICE_NAME>ZSW_UI_TRAVEL_PROC_M_O2</SERVICE_NAME>
+       <SERVICE_NAME>ZSW_SB_UI_TRAVEL_D_D</SERVICE_NAME>
        <SERVICE_CONTENT>
         <item>
          <SERVICE_VERSION>0001</SERVICE_VERSION>
          <SRVD_REF>
-          <URI>/sap/bc/adt/ddic/srvd/sources/zsw_ui_travel_processor_m</URI>
+          <URI>/sap/bc/adt/ddic/srvd/sources/%2fdmo%2fui_travel_d_d</URI>
           <TYPE>SRVD/SRV</TYPE>
-          <NAME>ZSW_UI_TRAVEL_PROCESSOR_M</NAME>
+          <NAME>/DMO/UI_TRAVEL_D_D</NAME>
          </SRVD_REF>
         </item>
        </SERVICE_CONTENT>

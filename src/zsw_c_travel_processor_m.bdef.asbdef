@@ -11,7 +11,10 @@ use etag
   use update;
   use delete;
 
-  use action createTravelByTemplate;
+//  use action createTravelByTemplate;
+  use action newAction;
+  use action deductDiscount;
+//  use action test;
 
   use association _BOOKING { create; }
 

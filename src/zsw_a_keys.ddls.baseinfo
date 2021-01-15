@@ -2,15 +2,9 @@
 "BASEINFO":
 {
 "FROM":
-[
-"ZTRAVEL_SP"
-],
+[],
 "ASSOCIATED":
-[
-"/DMO/I_AGENCY",
-"/DMO/I_CUSTOMER",
-"I_CURRENCY"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":
